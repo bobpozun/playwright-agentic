@@ -1,0 +1,54 @@
+{
+  "codebase_search": {
+    "schema": "<codebase_search>{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"properties\":{\"Query\":{\"type\":\"string\",\"description\":\"Search query\"},\"TargetDirectories\":{\"items\":{\"type\":\"string\"},\"type\":\"array\",\"description\":\"List of absolute paths to directories to search over\"}},\"additionalProperties\":false,\"type\":\"object\",\"required\":[\"Query\",\"TargetDirectories\"]}</codebase_search>",
+    "description": "Find relevant snippets in tests, Page Objects, and utilities based on precise queries."
+  },
+  "command_status": {
+    "schema": "<command_status>{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"properties\":{\"CommandId\":{\"type\":\"string\",\"description\":\"ID of the command to get status for\"},\"OutputPriority\":{\"type\":\"string\",\"enum\":[\"top\",\"bottom\",\"split\"],\"description\":\"Priority for displaying command output\"},\"OutputCharacterCount\":{\"type\":\"integer\",\"description\":\"Character count to view\"},\"WaitDurationSeconds\":{\"type\":\"integer\",\"description\":\"Seconds to wait for completion\"}},\"additionalProperties\":false,\"type\":\"object\",\"required\":[\"CommandId\",\"OutputPriority\",\"OutputCharacterCount\",\"WaitDurationSeconds\"]}</command_status>",
+    "description": "Check the status of long-running commands like Playwright or load tests."
+  },
+  "create_memory": {
+    "schema": "<create_memory>{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"properties\":{\"Id\":{\"type\":\"string\"},\"Title\":{\"type\":\"string\"},\"Content\":{\"type\":\"string\"},\"CorpusNames\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"Tags\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"Action\":{\"type\":\"string\",\"enum\":[\"create\",\"update\",\"delete\"]},\"UserTriggered\":{\"type\":\"boolean\"}},\"additionalProperties\":false,\"type\":\"object\",\"required\":[\"Id\",\"Title\",\"Content\",\"CorpusNames\",\"Tags\",\"Action\",\"UserTriggered\"]}</create_memory>",
+    "description": "Save important project memories like Playwright config, reusable utilities, and test patterns."
+  },
+  "edit_file": {
+    "schema": "<edit_file>{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"properties\":{\"CodeMarkdownLanguage\":{\"type\":\"string\"},\"TargetFile\":{\"type\":\"string\"},\"Instruction\":{\"type\":\"string\"},\"TargetLintErrorIds\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"CodeEdit\":{\"type\":\"string\"}},\"additionalProperties\":false,\"type\":\"object\",\"required\":[\"CodeMarkdownLanguage\",\"TargetFile\",\"Instruction\",\"TargetLintErrorIds\",\"CodeEdit\"]}</edit_file>",
+    "description": "Edit test, Page Object, or utility code safely with precise changes only."
+  },
+  "find_by_name": {
+    "schema": "<find_by_name>{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"properties\":{\"SearchDirectory\":{\"type\":\"string\"},\"Pattern\":{\"type\":\"string\"},\"Excludes\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"Type\":{\"type\":\"string\",\"enum\":[\"file\",\"directory\",\"any\"]},\"MaxDepth\":{\"type\":\"integer\"},\"Extensions\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"FullPath\":{\"type\":\"boolean\"}},\"additionalProperties\":false,\"type\":\"object\",\"required\":[\"SearchDirectory\",\"Pattern\",\"Excludes\",\"Type\",\"MaxDepth\",\"Extensions\",\"FullPath\"]}</find_by_name>",
+    "description": "Locate specific test files, Page Objects, or utility scripts by name or pattern."
+  },
+  "grep_search": {
+    "schema": "<grep_search>{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"properties\":{\"SearchPath\":{\"type\":\"string\"},\"Query\":{\"type\":\"string\"},\"MatchPerLine\":{\"type\":\"boolean\"},\"Includes\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"CaseInsensitive\":{\"type\":\"boolean\"}},\"additionalProperties\":false,\"type\":\"object\",\"required\":[\"SearchPath\",\"Query\",\"MatchPerLine\",\"Includes\",\"CaseInsensitive\"]}</grep_search>",
+    "description": "Use ripgrep to find exact matches for patterns inside your test, POM, or utility code."
+  },
+  "list_dir": {
+    "schema": "<list_dir>{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"properties\":{\"DirectoryPath\":{\"type\":\"string\"}},\"additionalProperties\":false,\"type\":\"object\",\"required\":[\"DirectoryPath\"]}</list_dir>",
+    "description": "List the contents of a directory (useful for browsing test projects)."
+  },
+  "run_command": {
+    "schema": "<run_command>{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"properties\":{\"CommandLine\":{\"type\":\"string\"},\"Cwd\":{\"type\":\"string\"},\"Blocking\":{\"type\":\"boolean\"},\"WaitMsBeforeAsync\":{\"type\":\"integer\"},\"SafeToAutoRun\":{\"type\":\"boolean\"}},\"additionalProperties\":false,\"type\":\"object\",\"required\":[\"CommandLine\",\"Cwd\",\"Blocking\",\"WaitMsBeforeAsync\",\"SafeToAutoRun\"]}</run_command>",
+    "description": "Propose safe Yarn-based commands to run Playwright tests, load tests, or scripts."
+  },
+  "search_web": {
+    "schema": "<search_web>{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"properties\":{\"query\":{\"type\":\"string\"},\"domain\":{\"type\":\"string\"}},\"additionalProperties\":false,\"type\":\"object\",\"required\":[\"query\",\"domain\"]}</search_web>",
+    "description": "Perform a web search if needed to find testing examples, Playwright docs, etc."
+  },
+  "suggested_responses": {
+    "schema": "<suggested_responses>{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"properties\":{\"Suggestions\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"additionalProperties\":false,\"type\":\"object\",\"required\":[\"Suggestions\"]}</suggested_responses>",
+    "description": "Suggest simple yes/no or option responses for faster interactions."
+  },
+  "view_code_item": {
+    "schema": "<view_code_item>{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"properties\":{\"File\":{\"type\":\"string\"},\"NodePath\":{\"type\":\"string\"}},\"additionalProperties\":false,\"type\":\"object\",\"required\":[\"NodePath\"]}</view_code_item>",
+    "description": "View specific methods or functions inside a file (like a Playwright test or Page Object)."
+  },
+  "view_file": {
+    "schema": "<view_file>{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"properties\":{\"AbsolutePath\":{\"type\":\"string\"},\"StartLine\":{\"type\":\"integer\"},\"EndLine\":{\"type\":\"integer\"},\"IncludeSummaryOfOtherLines\":{\"type\":\"boolean\"}},\"additionalProperties\":false,\"type\":\"object\",\"required\":[\"AbsolutePath\",\"StartLine\",\"EndLine\",\"IncludeSummaryOfOtherLines\"]}</view_file>",
+    "description": "View sections of a file with the option to summarize other lines."
+  },
+  "write_to_file": {
+    "schema": "<write_to_file>{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"properties\":{\"TargetFile\":{\"type\":\"string\"},\"CodeContent\":{\"type\":\"string\"},\"EmptyFile\":{\"type\":\"boolean\"}},\"additionalProperties\":false,\"type\":\"object\",\"required\":[\"TargetFile\",\"CodeContent\",\"EmptyFile\"]}</write_to_file>",
+    "description": "Safely create new test, utility, or config files."
+  }
+}

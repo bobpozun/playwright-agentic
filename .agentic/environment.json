@@ -1,0 +1,6 @@
+{
+  "os": "macos",
+  "default_cwd": "/path/to/your/project",
+  "shell": "zsh",
+  "package_manager": "yarn"
+}
